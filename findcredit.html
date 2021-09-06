@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无标题文档</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="css/select.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+		<script type="text/javascript" src="js/select-ui.min.js"></script>
+		<script type="text/javascript" src="editor/kindeditor.js"></script>
+
+		<script type="text/javascript">
+			KE.show({
+				id: 'content7',
+				cssPath: './index.css'
+			});
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$(".select1").uedSelect({
+					width: 345
+				});
+				$(".select2").uedSelect({
+					width: 167
+				});
+				$(".select3").uedSelect({
+					width: 100
+				});
+			});
+		</script>
+		<script>
+			function checkUsername() {
+				var uname = document.getElementById("username").value;
+				var unameTip = document.getElementById("usernameTip");
+				var reg = /^[\u4e00-\u9fa5]{2,5}$/;
+
+				if(!reg.test(uname)) {
+					unameTip.innerHTML = "用户名不合法";
+					unameTip.style = "color:red";
+				} else {
+					unameTip.innerHTML = "";
+				}
+
+			
+			}
+		</script>
+		<style type="text/css">
+						input[type=number] { 
+									-moz-appearance:textfield; 
+									} 
+									input[type=number]::-webkit-inner-spin-button, 
+									input[type=number]::-webkit-outer-spin-button { 
+									-webkit-appearance: none; 
+									margin: 0; 
+									} 
+					</style>
+	</head>
+
+	<body>
+
+		<div class="place">
+			<span>位置：</span>
+			<ul class="placeul">
+				<li>
+					<a href="#">首页</a>
+				</li>
+				<li>
+					<a href="#">学分查询</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="formbody">
+
+			<div id="tab2" class="tabson">
+
+				<ul class="seachform">
+                    <li style="display: flex;">
+						<label>学号<b>*</b></label>
+						<input id="userNumber" placeholder="请输入学号" name="classid" type="number" class="dfinput" style="width:345px;" />
+
+					</li>
+					<li style="display: flex;">
+						<label>学生姓名<b>*</b></label>
+						<input onblur="checkUsername()" id="username" placeholder="请输入2-5个汉字" name="classid" type="text" class="dfinput" style="width:345px;" />
+						<i id="usernameTip"></i>
+					</li>
+					<li><label>时间段<b>*</b></label>
+						<input id="date2" name="classid" type="month" class="dfinput" style="width:345px;" />
+						<style>
+							.calendar {
+								font-family: Tahoma;
+								background: #fff;
+								float: left;
+								border-style: solid;
+								border-width: 1px;
+								border-color: #85BEE5 #3485C0 #3485C0 #85BEE5;
+								position: relative;
+								padding: 10px;
+							}
+							
+							.calendar dl,
+							.calendar dd {
+								margin: 0;
+								padding: 0;
+								width: 183px;
+								font-size: 12px;
+								line-height: 22px;
+							}
+							
+							.calendar dt.title-date {
+								display: block;
+								border-bottom: 1px solid #E4E4E4;
+								font-weight: 700;
+								position: relative;
+								margin-bottom: 5px;
+								padding-bottom: 3px;
+							}
+							
+							.calendar dt {
+								float: left;
+								width: 25px;
+								margin-left: 1px;
+								text-align: center;
+							}
+							
+							.calendar dt.title-date {
+								width: 100%;
+							}
+							
+							.calendar dd {
+								clear: both;
+								width: 183px;
+								height: 139px;
+								font-weight: 700;
+								background: url(http://images.cnblogs.com/cnblogs_com/NNUF/379856/o_bg.png) no-repeat;
+								margin: 0;
+							}
+							
+							.prevyear,
+							.nextyear,
+							.prevmonth,
+							.nextmonth {
+								cursor: pointer;
+								height: 9px;
+								background: url(http://images.cnblogs.com/cnblogs_com/NNUF/379856/o_nextprv.png) no-repeat;
+								overflow: hidden;
+								position: absolute;
+								top: 8px;
+								text-indent: -999px;
+							}
+							
+							.prevyear {
+								left: 4px;
+								width: 9px;
+							}
+							
+							.prevmonth {
+								width: 5px;
+								background-position: -9px 0;
+								left: 20px;
+							}
+							
+							.nextyear {
+								width: 9px;
+								background-position: -19px 0;
+								right: 5px;
+							}
+							
+							.nextmonth {
+								width: 5px;
+								background-position: -14px 0;
+								right: 20px;
+							}
+							
+							.calendar dd a {
+								float: left;
+								width: 25px;
+								height: 22px;
+								color: blue;
+								overflow: hidden;
+								text-decoration: none;
+								margin: 1px 0 0 1px;
+								text-align: center;
+							}
+							
+							.calendar dd a.disabled {
+								color: #999;
+							}
+							
+							.calendar dd a.tody {
+								color: red;
+							}
+							
+							.calendar dd a.on {
+								background: blue;
+								color: #fff;
+							}
+							
+							.calendar dd a.live {
+								cursor: pointer
+							}
+							
+							.input {
+								border: 1px solid #ccc;
+								padding: 4px;
+								background: url(http://images.cnblogs.com/cnblogs_com/NNUF/379856/o_nextprv.png) no-repeat right -18px;
+							}
+						</style>
+
+					</li>
+					<li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询" /></li>
+
+				</ul>
+				<table class="tablelist">
+					<thead>
+						<tr>
+							<th><input name="" type="checkbox" value="" checked="checked" /></th>
+							<th>学号<i class="sort"><img src="images/px.gif" /></i></th>
+							<th>姓名</th>
+							<th>时间段</th>
+							<th>创新学分记录</th>
+							<th>总分数</th>
+						
+						</tr>
+						<tbody>
+							<tr>
+								<td><input name="" type="checkbox" value="" /></td>
+								<td>2013041708</td>
+								<td>韩佳妮</td>
+								<td>2021年05月</td>
+								<td>0.5</td>
+								<td>0.5</td>
+						
+                             </tr>
+                            <tr>
+								<td><input name="" type="checkbox" value="" /></td>
+								<td>2013041708</td>
+								<td>韩佳妮</td>
+								<td>2021年05月</td>
+								<td>0.5</td>
+								<td>0.5</td>
+						
+                             </tr>
+                            <tr>
+								<td><input name="" type="checkbox" value="" /></td>
+								<td>2013041708</td>
+								<td>韩佳妮</td>
+								<td>2021年05月</td>
+								<td>0.5</td>
+								<td>0.5</td>
+						
+                             </tr>
+						</tbody>
+				</table>
+
+			</div>
+
+		</div>
+
+		<script type="text/javascript">
+			$("#usual1 ul").idTabs();
+		</script>
+
+		<script type="text/javascript">
+			$('.tablelist tbody tr:odd').addClass('odd');
+		</script>
+
+		</div>
+
+	</body>
+
+</html>
